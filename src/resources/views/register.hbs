@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="css/web/form.css">
+
+<div class="register">
+    <br>
+    <div class="title">ĐĂNG KÝ THÀNH VIÊN</div>
+    <div class="group-form">
+        <form id="frmregister" class="" method="post">
+
+            <input type="hidden" name="ftoken" value="301d0b5774bbd47da709980153b16206">
+            <div class="form-group">
+                <label>Email của bạn</label>
+                <input placeholder="Email" name="femail" id="femail" type="text" value=""
+                    class="form-control txt_login">
+                <div class="error error-email hide"></div>
+            </div>
+            <!-- <div class="form-group">
+                    <label>Điện thoại</label>
+                    <input placeholder="Số điện thoại" maxlength="10" class="form-control txt_login" name="fphone"
+                        id="fphone" value=""
+                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                    <div class="error error-phone hide"></div>
+                </div> -->
+            <div class="form-group">
+                <label>Mật khẩu của bạn</label>
+                <input placeholder="Mật khẩu" name="fpassword" id="fpassword" type="password"
+                    class="form-control txt_login">
+                <div class="error error-pass hide"></div>
+            </div>
+            {{!-- <div class="form-group">
+                <label>Họ và tên</label>
+                <input placeholder="Vui lòng nhập tiếng Việt có dấu" name="ffullname" id="ffullname" type="text"
+                    value="" class="form-control txt_login">
+                <div class="error error-fullname hide"></div>
+            </div> --}}
+
+            <p>Bằng cách bấm nút "Đăng ký" bên dưới, bạn đã xác nhận đồng ý với<a href="/privacy" target="_blank"> Điều
+                    khoản sử dụng thông tin</a> của vascara.com</p>
+            <input type="hidden" name="fsubmit" value="1">
+            <button class="btn btn-default btn_login btn-register" type="submit">ĐĂNG KÝ</button>
+            <div class="more-link"><a href="/login">Đăng nhập</a><a href="/forgotpass">Quên mật khẩu</a></div>
+        </form>
+    </div>
+</div>
