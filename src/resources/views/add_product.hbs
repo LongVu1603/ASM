@@ -1,0 +1,145 @@
+<style>
+    .card-profile-image img {
+        max-width: 170px !important;
+    }
+</style>
+<div class="container-fluid mt--6">
+    <form action="/admin/products/store" method="post">
+        <div class="row">
+            <div class="col-xl-4 order-xl-2">
+                <div class="card card-profile">
+                    <img src="https://demos.creative-tim.com/argon-dashboard/assets/img/team-2.jpg"
+                        alt="Image placeholder" class="card-img-top">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 order-lg-2">
+                            <div class="card-profile-image">
+                                <span>
+                                    <img src="" onerror="this.src='//src/public/images/avatar-01.jpg'" id="img-avatar"
+                                        class="rounded-circle img-avatar updateavatar">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="file" id="uploadAvatar" name="product_image"
+                                    onchange="document.getElementById('img-avatar').src = window.URL.createObjectURL(this.files[0])">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="btn btn-sm btn-info  mr-4 " style="visibility: hidden;">Connect</a>
+                            <a href="#" class="btn btn-sm btn-default float-right"
+                                style="visibility: hidden;">Message</a>
+                        </div>
+                        <div class="form-group" style="margin-top: 50px;">
+                            <label style="float:left;" class="form-control-label">Category</label>
+                            <select name="category_id" class="form-control">
+                                <option hidden value="">Category</option>
+                                {{#each categories}}
+                                <option value="{{this._id}}">{{this.name}}</option>
+                                {{/each}}
+                                <input type="text" hidden name="product_title" value="">
+                            </select>
+                        </div>
+                        <script>
+                            $('.updateavatar').click(function () {
+                                $("#uploadAvatar").trigger('click');
+                            })
+                            $('select[name="category_id"]').on('change', function () {
+                                var product_title = $('select[name="category_id"] option:selected').text()
+                                $('input[name="product_title"]').val(product_title)
+                            });
+                        </script>
+                    </div>
+                    <div class="card-body pt-0">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 order-xl-1">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 class="mb-0">Add product</h3>
+                            </div>
+                            <!-- <div class="col-4 text-right">
+                                <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <hr class="my-4">
+                        <!-- Address -->
+                        <h6 class="heading-small text-muted mb-4">Product information</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-username">Name</label>
+                                        <input type="text" id="input-username" name="product_name" class="form-control"
+                                            placeholder="Product name" value="" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-city">Price</label>
+                                        <input type="number" id="input-city" name="product_price" class="form-control"
+                                            placeholder="Price" value="" required>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-country">Discount price</label>
+                                        <input type="number" id="input-country" name="product_discount_name"
+                                            class="form-control" placeholder="Discount price" value="" required>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <hr class="my-4">
+                        <!-- Description -->
+                        <h6 class="heading-small text-muted mb-4">About product</h6>
+                        <div class="pl-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label">Description</label>
+                                <textarea name="product_description" rows="4" class="form-control"
+                                    placeholder="A few words about product ..."></textarea>
+                            </div>
+                        </div>
+                        <button style="float: right" type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Footer -->
+    <footer class="footer pt-0">
+        <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6">
+                <div class="copyright text-center  text-lg-left  text-muted">
+                    © 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative
+                        Tim</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About
+                            Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md"
+                            class="nav-link" target="_blank">MIT License</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>
