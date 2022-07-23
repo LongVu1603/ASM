@@ -3,18 +3,10 @@ const express = require("express");
 const morgan = require("morgan");
 const handlebars = require("express-handlebars");
 const route = require("./routes");
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
+const db = require("./config/db");
 
 // Connect to db
-dotenv.config();
-
-try {
-  mongoose.connect(process.env.MONGODB_URL, () => {});
-  console.log("Connect successfully!!!");
-} catch (err) {
-  console.log("Connect failure!!!");
-}
+db.connect();
 
 const app = express();
 const port = 3000;

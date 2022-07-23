@@ -32,23 +32,39 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/web/util.css">
-    <link rel="stylesheet" type="text/css" href="css/web/main.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
 </head>
 
 <body class="animsition">
     <div class="app">
         <!-- Header -->
-        {{> website/Header }}
+        {{> website/header }}
         <!-- End Header -->
+
+        <!-- Slibar -->
+        {{> website/slibar }}
+        <!-- End Slibar -->
+
+        <!-- Cart -->
+        {{> website/cart }}
+        <!-- End Cart -->
+
+        <!-- Slider -->
+        {{> website/slider }}
+        <!-- End Slider -->
+
+        <!-- Banner -->
+        {{> website/banner }}
+        <!-- End Banner -->
 
         <!-- Product -->
         {{{ body }}}
         <!-- End Product -->
 
         <!-- Footer -->
-        {{> website/Footer }}
+        {{> website/footer }}
         <!-- End Footer -->
     </div>
     <!--===============================================================================================-->

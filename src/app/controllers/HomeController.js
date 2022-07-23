@@ -1,6 +1,6 @@
-const Product = require("../models/Product");
-const Category = require("../models/Category");
-const { mutipleMongooseToOject } = require("../../util/mongoose");
+const Product = require('../models/Product');
+const Category = require('../models/Category');
+const { mutipleMongooseToOject } = require('../../util/mongoose');
 
 class HomeController {
   // [GET] /
@@ -19,8 +19,8 @@ class HomeController {
     Product.find({})
       .then((products) => {
         // products = products.map(products => products.toObject());
-        res.render("home", {
-          layout: "website/main",
+        res.render('home', {
+          layout: 'website/main',
           products: mutipleMongooseToOject(products),
         });
       })
@@ -28,7 +28,7 @@ class HomeController {
   }
   // [GET] /search
   search(req, res) {
-    res.send("COURSE CREATE");
+    res.send('COURSE CREATE');
   }
 }
 module.exports = new HomeController();

@@ -1,104 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="js-focus-visible" lang="en">
 
 <head>
-
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://demos.creative-tim.com/argon-dashboard/assets/img/brand/favicon.png"
+        type="image/png">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://demos.creative-tim.com/argon-dashboard/assets/css/argon-dashboard.min.css?v=2.0.3"
+        type="text/css">
+    <link rel="stylesheet" href="https://demos.creative-tim.com/argon-dashboard/assets/fonts/nucleo-icons.woff2"
+        type="text/css">
+    <!-- Page plugins -->
 
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <!-- Latest compiled and minified JS -->
+    <script src="//code.jquery.com/jquery.js"></script>
 
-    <!-- Custom styles for this template-->
-    <link href="css/admin/sb-admin-2.min.css" rel="stylesheet">
-    <link href="css/admin/i.css" rel="stylesheet">
+    <!-- Argon CSS -->
+    <link rel="stylesheet" href="https://demos.creative-tim.com/argon-dashboard/assets/css/argon.min.css?v=1.2.0"
+        type="text/css">
+    <style type="text/css">
+        /* Chart.js */
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: .99
+            }
 
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            animation: chartjs-render-animation 1ms
+        }
+
+        .chartjs-size-monitor,
+        .chartjs-size-monitor-expand,
+        .chartjs-size-monitor-shrink {
+            position: absolute;
+            direction: ltr;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+            visibility: hidden;
+            z-index: -1
+        }
+
+        .chartjs-size-monitor-expand>div {
+            position: absolute;
+            width: 1000000px;
+            height: 1000000px;
+            left: 0;
+            top: 0
+        }
+
+        .chartjs-size-monitor-shrink>div {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            left: 0;
+            top: 0
+        }
+    </style>
 </head>
 
-<body id="page-top">
-
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        {{> admin/sidebar}}
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
-
-                <!-- Topbar -->
-                {{> admin/header}}
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                {{> admin/content}}
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            {{> admin/footer}}
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
+<body class="g-sidenav-show g-sidenav-pinned">
+   
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Sidenav -->
+    {{> admin/sidenav }}
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- topnav -->
+        {{> admin/topnav }}
+        <!-- Header -->
+        <!-- Header -->
+        {{> admin/header }}
+        <!-- Page content -->
+        {{{ body }}}
     </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
+    <!-- Argon Scripts -->
+    <!-- Core -->
+    <script src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script
+        src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
+    <script
+        src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script
+        src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <!-- Optional JS -->
+    <script src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script
+        src="https://demos.creative-tim.com/argon-dashboard/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    <!-- Argon JS -->
+    <script src="https://demos.creative-tim.com/argon-dashboard/assets/js/argon.min.js?v=1.2.0"></script>
+    <div class="backdrop d-xl-none" data-action="sidenav-unpin" data-target="undefined"></div>
+    <div
+        style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+        <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <style>
+        #ofBar {
+            background: #fff;
+            z-index: 999999999;
+            font-size: 16px;
+            color: #333;
+            padding: 16px 40px;
+            font-weight: 400;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 40px;
+            width: 80%;
+            border-radius: 8px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+        }
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        #ofBar-logo img {
+            height: 50px;
+        }
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+        #ofBar-content {
+            display: inline;
+            padding: 0 15px;
+        }
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+        #ofBar-right {
+            display: flex;
+            align-items: center;
+        }
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+        #ofBar b {
+            font-size: 15px !important;
+        }
 
+        #count-down {
+            display: initial;
+            padding-left: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        #close-bar {
+            font-size: 17px;
+            opacity: 0.5;
+            cursor: pointer;
+        }
+
+        #close-bar:hover {
+            opacity: 1;
+        }
+
+        #btn-bar {
+            background-image: linear-gradient(310deg, #141727 0%, #3A416F 100%);
+            color: #fff;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 12px;
+            opacity: .95;
+            margin-right: 20px;
+            box-shadow: 0 5px 10px -3px rgba(0, 0, 0, .23), 0 6px 10px -5px rgba(0, 0, 0, .25);
+        }
+
+        #btn-bar,
+        #btn-bar:hover,
+        #btn-bar:focus,
+        #btn-bar:active {
+            text-decoration: none !important;
+            color: #fff !important;
+        }
+
+        #btn-bar:hover {
+            opacity: 1;
+        }
+
+        #btn-bar span,
+        #ofBar-content span {
+            color: red;
+            font-weight: 700;
+        }
+
+        #oldPriceBar {
+            text-decoration: line-through;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 400;
+            top: 2px;
+            position: relative;
+        }
+
+        #newPrice {
+            color: #fff;
+            font-size: 19px;
+            font-weight: 700;
+            top: 2px;
+            position: relative;
+            margin-left: 7px;
+        }
+
+        #fromText {
+            font-size: 15px;
+            color: #fff;
+            font-weight: 400;
+            margin-right: 3px;
+            top: 0px;
+            position: relative;
+        }
+
+        @media(max-width: 991px) {}
+
+        @media (max-width: 768px) {
+            #count-down {
+                display: block;
+                margin-top: 15px;
+            }
+
+            #ofBar {
+                flex-direction: column;
+                align-items: normal;
+            }
+
+            #ofBar-content {
+                margin: 15px 0;
+                text-align: center;
+                font-size: 18px;
+            }
+
+            #ofBar-right {
+                justify-content: flex-end;
+            }
+        }
+    </style>
+
+    <script type="text/javascript" id="">function setCookie(a, d, c) { var b = new Date; b.setTime(b.getTime() + 864E5 * c); c = "expires\x3d" + b.toUTCString(); document.cookie = a + "\x3d" + d + ";" + c + ";path\x3d/" } function readCookie(a) { a += "\x3d"; for (var d = document.cookie.split(";"), c = 0; c < d.length; c++) { for (var b = d[c]; " " == b.charAt(0);)b = b.substring(1, b.length); if (0 == b.indexOf(a)) return b.substring(a.length, b.length) } return null }
+        function createOfferBar() {
+            var a = document.createElement("div"); a.setAttribute("id", "ofBar"); a.innerHTML = "\x3cdiv id\x3d'ofBar-logo'\x3e \x3cimg alt\x3d'creative-tim-logo' src\x3d'https://s3.amazonaws.com/creativetim_bucket/static-assets/logo-ct-black.png'\x3e\x3c/div\x3e\x3cdiv id\x3d'ofBar-content'\x3e\ud83c\udf81\ud83c\udf81 Our Winter Specials are here! Grab yours with \x3cspan\x3e80% OFF\x3c/span\x3e and save weeks of work.\x3c/div\x3e\x3cdiv id\x3d'ofBar-right'\x3e\x3ca href\x3d'https://www.creative-tim.com/campaign?ref\x3ddemos-win-2021' target\x3d'_blank' id\x3d'btn-bar'\x3eView Offers\x3c/a\x3e\x3ca id\x3d'close-bar'\x3e\u00d7\x3c/a\x3e\x3c/div\x3e"; document.body.insertBefore(a,
+                document.body.firstChild)
+        } function closeOfferBar() { document.getElementById("ofBar").setAttribute("style", "display:none"); setCookie("view_offer_bar", "true", 1) } var value = readCookie("view_offer_bar");
+        if (null == value) {
+            createOfferBar(); document.getElementById("close-bar").addEventListener("click", closeOfferBar); var countDownDate = Date.UTC(2020, 10, 28, 8, 0, 0), x = setInterval(function () { var a = (new Date((new Date).toUTCString())).getTime(); a = countDownDate - a; var d = Math.floor(a / 864E5), c = Math.floor(a % 864E5 / 36E5), b = Math.floor(a % 36E5 / 6E4), e = Math.floor(a % 6E4 / 1E3); document.getElementById("count-down").innerHTML = d + "d " + c + ":" + b + ":" + e; 0 > a && (clearInterval(x), document.getElementById("count-down").innerHTML = "EXPIRED") },
+                1E3)
+        };</script><iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame"
+        src="https://vars.hotjar.com/box-a1ae2079824d1c48aa9ce06efb256f18.html"
+        style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe>
 </body>
 
 </html>

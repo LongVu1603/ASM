@@ -1,21 +1,18 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Color = new Schema(
-  {
-    name: {
-      type: String,
-      maxLength: 255,
-      required: true,
-    },
-    status: {
-      type: Boolean,
-      default: true,
-    },
+const Color = new Schema({
+  name: {
+    type: String,
+    maxLength: 255,
+    required: true,
   },
-  {
-    timestamps: true,
-  }
-);
+  status: {
+    type: Boolean,
+    default: true,
+  },
+}, {
+  timestamps: true,
+});
 
-module.exports = mongoose.model("Color", Color);
+module.exports = mongoose.model('Color', Color);
