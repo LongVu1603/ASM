@@ -21,10 +21,10 @@ class ProductController {
   show(req, res, next) {
     Product.findOne({ slug: req.params.slug })
       .then((product) => {
-        // res.render('product-detail', {
-        //   layout: 'website/detail',
-        res.render('add_product', {
-          layout: 'admin/main',
+        res.render('product-detail', {
+          layout: 'website/detail',
+        // res.render('add_product', {
+        //   layout: 'admin/main',
           product: mongooseToObject(product),
         });
       })
